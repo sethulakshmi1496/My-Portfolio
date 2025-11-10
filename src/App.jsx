@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useRef } from "react";
 import Intro from "./components/Intro.jsx";
 import Header from "./components/Header.jsx";
@@ -11,7 +10,7 @@ import Contact from "./components/Contact.jsx";
 export default function App() {
   const [entered, setEntered] = useState(false);
 
-  // refs for scrolling to sections
+  // refs for smooth scrolling
   const aboutRef = useRef(null);
   const skillsRef = useRef(null);
   const qualificationRef = useRef(null);
@@ -28,7 +27,6 @@ export default function App() {
         <Intro onEnter={() => setEntered(true)} />
       ) : (
         <>
-          {/* Header (Navbar inside Header) */}
           <Header
             onSkillsClick={() => scrollToSection(skillsRef)}
             onProjectsClick={() => scrollToSection(projectsRef)}
@@ -37,24 +35,24 @@ export default function App() {
             onQualificationClick={() => scrollToSection(qualificationRef)}
           />
 
-          {/* Sections */}
-          <section ref={aboutRef}>
+          {/* Sections with scroll margin */}
+          <section ref={aboutRef} style={{ scrollMarginTop: "70px" }}>
             <About />
           </section>
 
-          <section ref={skillsRef}>
+          <section ref={skillsRef} style={{ scrollMarginTop: "70px" }}>
             <Skills />
           </section>
 
-          <section ref={qualificationRef}>
+          <section ref={qualificationRef} style={{ scrollMarginTop: "70px" }}>
             <Qualification />
           </section>
 
-          <section ref={projectsRef}>
+          <section ref={projectsRef} style={{ scrollMarginTop: "70px" }}>
             <Projects />
           </section>
 
-          <section ref={contactRef}>
+          <section ref={contactRef} style={{ scrollMarginTop: "70px" }}>
             <Contact />
           </section>
         </>

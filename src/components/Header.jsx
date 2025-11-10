@@ -47,8 +47,9 @@ export default function Header({
   const nameFont = "Great Vibes, cursive";
   const greetingTextFont = "Inter, sans-serif";
 
+  // ✨ Responsive text sizes using clamp() for fluid scaling
   const hugeTitleStyle = {
-    fontSize: "7.5rem",
+    fontSize: "clamp(3.2rem, 8vw, 7.5rem)", // scales automatically
     fontWeight: 400,
     lineHeight: 1.05,
     color: fadedBlack,
@@ -57,7 +58,7 @@ export default function Header({
   };
 
   const greetingStyle = {
-    fontSize: "2rem",
+    fontSize: "clamp(1rem, 3vw, 2rem)", // fluid smaller greeting
     fontWeight: 500,
     letterSpacing: "4px",
     color: fadedBlack,
@@ -132,6 +133,7 @@ export default function Header({
 
       {/* ✨ Text Layer */}
       <div style={{ position: "absolute", inset: 0, zIndex: 5 }}>
+        {/* Top Left */}
         <div
           ref={topLeftTextRef}
           style={{ position: "absolute", top: "18%", left: "10%" }}
@@ -140,19 +142,20 @@ export default function Header({
           <h1 style={hugeTitleStyle}>Sethu</h1>
         </div>
 
+        {/* Bottom Right */}
         <div
           ref={bottomRightTextRef}
           style={{
             position: "absolute",
             bottom: "30%",
             right: "8%",
-            paddingLeft: "40px", // ✅ Added: shift text slightly left
+            paddingLeft: "40px",
           }}
         >
           <h1
             style={{
               ...hugeTitleStyle,
-              fontSize: "6.5rem",
+              fontSize: "clamp(2.8rem, 7vw, 6.5rem)", // ✅ fluid scaling for “Lakshmi”
             }}
           >
             Lakshmi

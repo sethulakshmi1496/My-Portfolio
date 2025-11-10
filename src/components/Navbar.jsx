@@ -13,30 +13,15 @@ export default function Navbar({
   const toggleDropdown = () => setShowDropdown(!showDropdown);
 
   return (
-    <nav
-      style={{
-        position: "absolute",
-        top: 0,
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: "95%",
-        zIndex: 6,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0.5rem 2rem",
-        height: "60px",
-        backgroundColor: "transparent",
-      }}
-    >
-      {/* ✨ Elegant Portfolio Text (same font as your latest navbar) */}
-      <div style={{ display: "flex", alignItems: "center" }}>
+    <nav className="main-navbar">
+      {/* ✨ Left side - Portfolio Text */}
+      <div className="navbar-left">
         <h2 className="portfolio-text">Portfolio</h2>
       </div>
 
-      {/* 🔹 Links + Dropdown */}
-      <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
-        <div style={{ display: "flex", gap: "2rem" }}>
+      {/* 🔹 Right side - Links and Dropdown */}
+      <div className="navbar-right">
+        <div className="nav-links">
           <button onClick={onSkillsClick} className="nav-link">
             Skills
           </button>
@@ -49,25 +34,14 @@ export default function Navbar({
         </div>
 
         {/* Dots Dropdown */}
-        <div style={{ position: "relative" }}>
+        <div className="dropdown-container">
           <button className="animated-button" onClick={toggleDropdown}>
             <span className="dot">•</span>
             <span className="dot">•</span>
           </button>
 
           {showDropdown && (
-            <div
-              style={{
-                position: "absolute",
-                top: "45px",
-                right: 0,
-                backgroundColor: "#fff",
-                borderRadius: "8px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                padding: "0.5rem 0",
-                zIndex: 10,
-              }}
-            >
+            <div className="dropdown-menu">
               <button
                 className="dropdown-item"
                 onClick={() => {

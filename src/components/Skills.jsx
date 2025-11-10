@@ -1,3 +1,4 @@
+// src/components/Skills.jsx
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import BIRDS from "vanta/dist/vanta.birds.min.js";
@@ -25,6 +26,8 @@ export default function Skills() {
   const cardsRef = useRef([]);
   const titleRef = useRef(null);
 
+  const isMobile = window.innerWidth < 768;
+
   const skillsData = [
     { name: "Python", src: PythonIcon },
     { name: "Django", src: DjangoIcon },
@@ -39,7 +42,7 @@ export default function Skills() {
     { name: "JavaScript", src: JsIcon },
   ];
 
-  // 🐦 Keep original Vanta Birds background
+  // 🐦 Vanta Birds Background
   useEffect(() => {
     if (!vantaEffect.current) {
       vantaEffect.current = BIRDS({
@@ -50,9 +53,9 @@ export default function Skills() {
         gyroControls: false,
         backgroundColor: 0xe5e5f2,
         color1: 0xed5050,
-        birdSize: 0.8,
+        birdSize: isMobile ? 0.6 : 0.8,
         wingSpan: 12,
-        quantity: 6,
+        quantity: isMobile ? 3 : 6,
         speedLimit: 5,
       });
     }
@@ -60,13 +63,13 @@ export default function Skills() {
       if (vantaEffect.current) vantaEffect.current.destroy();
       vantaEffect.current = null;
     };
-  }, []);
+  }, [isMobile]);
 
   // 🌪️ Card Circle Animation
   useEffect(() => {
     const cards = cardsRef.current;
     const total = cards.length;
-    const radius = 300;
+    const radius = isMobile ? 150 : 300;
 
     gsap.set(cards, {
       position: "absolute",
@@ -106,13 +109,12 @@ export default function Skills() {
     });
 
     return () => tl.scrollTrigger?.kill();
-  }, []);
+  }, [isMobile]);
 
   // ✨ Text Entrance + Floating Animation
   useEffect(() => {
     const lines = titleRef.current.querySelectorAll(".skills-line");
 
-    // Initial entrance
     gsap.set(lines, { y: 80, opacity: 0 });
 
     const tl = gsap.timeline({
@@ -130,7 +132,6 @@ export default function Skills() {
       ease: "power3.out",
     });
 
-    // Continuous floating effect
     gsap.to(titleRef.current, {
       y: "+=15",
       duration: 3,
