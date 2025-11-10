@@ -1,0 +1,105 @@
+.projects-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #e5e5f2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔝 Header perfectly at top — no space above */
+.projects-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 20;
+  margin: 0;
+  padding: 0;
+}
+
+/* ✨ Apple Chancery animated text */
+.projects-heading {
+  font-family: "Apple Chancery", "URW Chancery L", cursive;
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  color: #222;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(-100px) scale(0.8);
+}
+
+/* Stage for 3D cards */
+.projects-stage {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  perspective: 1800px;
+  transform-style: preserve-3d;
+}
+
+/* Card design */
+.project-card {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  width: clamp(300px, 45vw, 720px);
+  aspect-ratio: 16 / 10;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* 🏷️ Label at top of image */
+.project-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  text-align: center;
+  font-family: "Marker Felt", cursive;
+  font-size: 1.4rem;
+  color: #fff;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  z-index: 2;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Image */
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text overlay (bottom) */
+.project-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  color: #111;
+  font-family: "Marker Felt", cursive;
+}
+
+.project-info h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}

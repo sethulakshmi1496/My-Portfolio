@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Brush+Script+MT&display=swap");
+
+.skills-section {
+  width: 100%;
+  min-height: 160vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e5e5f2;
+}
+
+.vanta-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.skills-overlay {
+  position: relative;
+  z-index: 3;
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skills-grid {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* ====== MODERN COLORED TITLE ====== */
+.skills-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: "Brush Script MT", cursive;
+  line-height: 1.1;
+  z-index: 10;
+  user-select: none;
+}
+
+.skills-line {
+  display: block;
+  color: #3d4a83; /* base soft blue-violet tone */
+  text-shadow: 0 0 10px rgba(237, 80, 80, 0.3),
+               0 0 20px rgba(184, 77, 142, 0.3),
+               0 0 35px rgba(61, 74, 131, 0.4);
+  animation: slowColorShift 10s ease-in-out infinite alternate;
+}
+
+/* Subtle animated hue blending */
+@keyframes slowColorShift {
+  0% {
+    color: #3d4a83;
+  }
+  50% {
+    color: #b84d8e;
+  }
+  100% {
+    color: #ed5050;
+  }
+}
+
+/* “My” smaller */
+.skills-line.top-line {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* “Skills” larger */
+.skills-line.bottom-line {
+  font-size: 7rem;
+  font-weight: 600;
+}
+
+/* ====== CARDS ====== */
+.skill-wrapper {
+  width: 130px;
+  height: 150px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+}
+
+.skill-wrapper:hover {
+  transform: scale(1.1) translateZ(20px);
+}
+
+.skill-img {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-wrapper:hover .skill-img {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 992px) {
+  .skills-line.top-line {
+    font-size: 3.8rem;
+  }
+  .skills-line.bottom-line {
+    font-size: 5.5rem;
+  }
+  .skill-wrapper {
+    width: 110px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-line.top-line {
+    font-size: 2.8rem;
+  }
+  .skills-line.bottom-line {
+    font-size: 4rem;
+  }
+  .skill-wrapper {
+    width: 90px;
+    height: 110px;
+  }
+}

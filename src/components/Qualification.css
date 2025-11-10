@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Marker+Felt&display=swap");
+
+.qualification-section {
+  position: relative;
+  width: 100%;
+  height: 130vh;
+  background: #e5e5f2;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 👈 push content toward top */
+  margin-top: 0;
+  padding-top: 4rem; /* 👈 slight top padding for breathing room */
+}
+
+/* 3D Model Centered */
+.three-background {
+  position: absolute;
+  top: 55%; /* 👈 slightly lower so model stays centered visually */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 900px;
+  height: 820px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ✨ Text Animation Heading */
+.qualification-heading {
+  font-family: "Great Vibes", cursive;
+  font-size: 100px;
+  color: #383838;
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  margin-top: 0; /* 👈 fully top aligned */
+  text-align: center;
+  overflow: hidden;
+  letter-spacing: 2px;
+}
+
+.qualification-heading .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Card container */
+.depth-container {
+  position: relative;
+  z-index: 5;
+  perspective: 2800px;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem; /* 👈 creates space between heading & cards */
+}
+
+/* Square transparent card */
+.depth-card {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #1e1e1e;
+  padding: 2rem;
+  font-family: "Marker Felt", cursive;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: translateZ(-1000px);
+}
+
+/* Text inside cards */
+.glow-text {
+  font-size: 1.6rem;
+  color:#383838;
+  margin-bottom: 0.5rem;
+}
+
+.glow-sub {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.glow-desc {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.7;
+  max-width: 85%;
+}

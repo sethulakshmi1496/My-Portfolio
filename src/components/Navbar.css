@@ -1,0 +1,96 @@
+/* ✨ Portfolio text - elegant like your latest version */
+.portfolio-text {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 1px;
+  margin: 0;
+  cursor: default;
+}
+
+/* Navbar link underline animation */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+/* underline animation effect */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #555;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: #555;
+}
+
+/* Dot button */
+.animated-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.animated-button .dot {
+  font-size: 0.9rem;
+}
+
+.animated-button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: bounce 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1.2) translateY(0); }
+  100% { transform: scale(1.2) translateY(-4px); }
+}
+
+/* Dropdown items */
+.dropdown-item {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #1a1a1a;
+  font-size: 1rem;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #333;
+}
